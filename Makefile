@@ -3,13 +3,14 @@ CFLAGS=-Wall -Werror -Wextra -pedantic -g -O3 -Iinclude/
 TARGET_DIR=target/
 SRC_DIR=src/
 
-OBJS= main.o
+OBJ_FILES= main.o expression.o
+OBJS=$(addprefix $(TARGET_DIR), $(OBJ_FILES))
 EXE= calc
 
 all: quick
 
-$(EXE): target $(TARGET_DIR)$(OBJS)
-	$(CC) $(CFLAGS) $(TARGET_DIR)$(OBJS) -o $(TARGET_DIR)$(EXE)
+$(EXE): target $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET_DIR)$(EXE)
 
 $(TARGET_DIR)%.o: $(SRC_DIR)%.c
 	$(CC) $(CFLAGS) -c $< -o $@

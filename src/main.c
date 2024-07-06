@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stddef.h>
 
+#include "expression.h"
+
 char * setup_string(int, char**);
 
 int main(int argc, char** argv) {
@@ -9,6 +11,10 @@ int main(int argc, char** argv) {
     char * expr = setup_string(argc, argv);
     printf("%s\n", expr);
     free(expr);
+
+    expr_t * root = parse(expr);
+    printf("%d\n", root->k);
+    free(root);
 
     return 0;
 }
