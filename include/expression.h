@@ -10,7 +10,7 @@ typedef enum {
     DIV,
 } expr_kind;
 
-typedef struct {
+typedef struct  expr_t {
     struct expr_t * l;  // left sub-expression
     struct expr_t * r;  // right sub-expression
     expr_kind k; // expression kind

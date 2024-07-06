@@ -12,9 +12,9 @@ int main(int argc, char** argv) {
     printf("%s\n", expr);
     free(expr);
 
-    expr_t * root = parse(expr);
+    expr_t * root = expr_parse(expr);
     printf("%d\n", root->k);
-    free(root);
+    expr_free(root);
 
     return 0;
 }
